@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <script>
+      
+  window.onload=function(){
+    
+ 
+  var d=[ { x: 1950, y: 34.72 },
+  { x: 1951, y: 34.66 },
+  { x: 1952, y: 34.79 },
+  { x: 1953, y: 34.85 },
+  { x: 1954, y: 35.04 },
+  { x: 1955, y: 34.97 },
+  { x: 1956, y: 34.9 },
+  { x: 1957, y: 34.99 },
+  { x: 1958, y: 35.09 },
+  { x: 1959, y: 35.05 },
+  { x: 1960, y: 35.54 },
+  { x: 1961, y: 35.15 },
+  { x: 1962, y: 35.08 },
+  { x: 1963, y: 35.08 },
+  { x: 1964, y: 35.12 },
+  { x: 1965, y: 35.13 },
+  { x: 1966, y: 35.18 },
+  { x: 1967, y: 35.19 },
+  { x: 1968, y: 41.113 },
+  { x: 1969, y: 35.189 },
+  { x: 1970, y: 37.434 },
+  { x: 1971, y: 43.455 },
+  { x: 1972, y: 63.779 },
+  { x: 1973, y: 106.236 },
+  { x: 1974, y: 183.683 },
+  { x: 1975, y: 139.279 },
+  { x: 1976, y: 133.674 },
+  { x: 1977, y: 160.48 },
+  { x: 1978, y: 207.895 },
+  { x: 1979, y: 463.666 },
+  { x: 1980, y: 596.712 },
+  { x: 1981, y: 410.119 },
+  { x: 1982, y: 444.776 },
+  { x: 1983, y: 388.06 },
+  { x: 1984, y: 319.622 },
+  { x: 1985, y: 321.985 },
+  { x: 1986, y: 391.595 },
+  { x: 1987, y: 487.079 },
+  { x: 1988, y: 419.248 },
+  { x: 1989, y: 409.655 },
+  { x: 1990, y: 378.161 },
+  { x: 1991, y: 361.875 },
+  { x: 1992, y: 334.657 },
+  { x: 1993, y: 383.243 },
+  { x: 1994, y: 379.48 },
+  { x: 1995, y: 387.445 },
+  { x: 1996, y: 369.338 },
+  { x: 1997, y: 288.776 },
+  { x: 1998, y: 291.357 },
+  { x: 1999, y: 283.743 },
+  { x: 2000, y: 271.892 },
+  { x: 2001, y: 275.992 },
+  { x: 2002, y: 333.3 },
+  { x: 2003, y: 407.674 },
+  { x: 2004, y: 442.974 },
+  { x: 2005, y: 509.423 },
+  { x: 2006, y: 629.513 },
+  { x: 2007, y: 803.618 },
+  { x: 2008, y: 819.94 },
+  { x: 2009, y: 1135.012 },
+  { x: 2010, y: 1393.512 },
+  { x: 2011, y: 1652.725 },
+  { x: 2012, y: 1687.342 },
+  { x: 2013, y: 1221.588 },
+  { x: 2014, y: 1200.44 },
+  { x: 2015, y: 1068.317 },
+  { x: 2016, y: 1152.165 },
+  { x: 2017, y: 1265.674 },
+  { x: 2018, y: 1249.887 },
+  { x: Number("<%= data[0] %>") , y:Number("<%= data[1] %>")  , toolTipContent:"<b>Year : </b>{x} <br/><b>Predicted Price : </b>$ {y} ", markerSize:10 , color:"green" } 
+ ];   
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            zoomEnabled: true,
+            theme:"light2",
+            title:{
+                    fontFamily:"Karla"
+            },
+             toolTip:{ fontFamily:'Karla' },
+             
+            axisX: {
+                labelFontFamily: "Karla",
+                title:"Year",
+                minimum: 1948,
+                maximum: 2105,
+                titleFontFamily: "Karla",
+                titleFontSize : "20",
+                titleFontColor:"darkgreen",
+                valueFormatString:"####",
+                interval:5,
+                
+                
+            },
+            
+            axisY:{
+                labelFontFamily: "Karla",
+                title: "Price (in USD)",
+                valueFormatString: "$ ####",
+                minimum: 0,
+                interval:200,
+                titleFontSize : "20",
+                titleFontColor:"darkgreen",
+                maximum: 2600,
+                titleFontFamily: "Karla",
+                gridColor: "rgb(240,230,240)",
+                suffix:"  "
+            },
+            data: [{
+                type: "scatter",
+                toolTipContent: "<b>Year : </b>{x} <br/><b>Price: </b>$ {y} ",
+                fontFamily:"Karla",
+                markerSize:6,
+                dataPoints:d
+                
+            }]
+        });
+        chart.render();
+    }
+        
+     </script>
+     <style>
+         button:focus{
+             outline:none;
+         }
+     </style>
+</head>
+<body style="font-family:Karla">
+       
+    <div class="container">
+    <div>
+        <a href="/predict">
+           <button type="submit" style="cursor:pointer;;font-size:17px ; float:right; padding-left:4%;padding-right:4%;padding-top:1.25%;padding-bottom:1.25%; margin-right:2%;color:#254b4e;background:white;border:1px solid #2f6064;box-shadow:1px 2px 1px rgba(1,1,1,0.4);letter-spacing:0.0964rem;font-weight: bold">BACK</button>
+        </a>
+        <h1 style="margin-top:4%;margin-bottom:3%;text-align:center;text-shadow:1px 2px 1px rgba(0,0,0,0.3)">Gold Price Prediction</h1>
+               
+    </div>
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <h1 style="margin-top:3%;text-align:center">Predicted Gold Price for year <%= data[0] %> = $ <a style="color: darkgreen"><%= data[1] %></a></h1>
+        <hr style="border:2px solid #365485" id="hrTag">
+        <div style="text-align:center;font-size:20px;color:rgb(44, 5, 20)"><label style="text-align:center"><%= equ %></label></div>
+  </div>  
+  <script>
+      var hr=document.getElementById("hrTag");
+      hr.style.width=0+"%";
+      var w=0;
+      var inter=setInterval(function(){
+          w++;
+          hr.style.width=w+"%";
+          if(w==74)
+          {
+             clearInterval(inter);
+          }
+     },8);
+  </script>
+</body>
+</html>
+
+

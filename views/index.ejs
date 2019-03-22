@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <style>
+       button{
+         cursor:pointer;
+         padding-left:4%;
+         padding-right:4%;
+         padding-top:1.25%;
+         padding-bottom:1.25%;
+         margin:3%;
+         color:#0d1f20;
+         background:white;
+         font-size:17px;
+         border:none;
+         box-shadow:1px 3px 3px rgba(1,1,1,0.4);
+         letter-spacing:0.13rem;
+         font-family:Karla;
+         text-align:center;
+         font-weight:bold;
+         border:1px solid grey;
+         text-transform:uppercase;
+       }
+       button:focus{
+           outline:none;
+       }
+    </style>
+</head>
+<body style="font-family:Karla">
+    <div class="container">
+        <div style="text-align:center">
+          <img src="/img/gold.png" style="margin:3% auto">
+          <h1 style="margin-top:0% ;letter-spacing:0.15rem;text-transform:uppercase;color:#15393c;font-size:2.3em;text-shadow:0px 1px 1px rgb(32, 32, 32)">Future Gold Price Prediction</h1>
+          <hr style="border:1px solid yellowgreen;margin-bottom:2%" id="hrTag">
+          <b style="text-transform: uppercase;margin-top:1%;letter-spacing:0.1298rem">Using Linear Regression</b>
+        </div>
+        <div style="text-align:center">
+            <form method="GET" action="/predict">
+               <button type="submit">Get Started</button>
+            </form>
+        </div>
+    </div>
+    <script>
+            var hr=document.getElementById("hrTag");
+            hr.style.width=0+"%";
+            var w=0;
+            var inter=setInterval(function(){
+                w++;
+                hr.style.width=w+"%";
+                if(w==45)
+                {
+                   clearInterval(inter);
+                }
+           },15);
+    </script>
+</body>
+</html>

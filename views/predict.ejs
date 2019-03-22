@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        button{
+            cursor:pointer;font-size:17px ; text-transform:uppercase; padding-left:4%;padding-right:4%;padding-top:1.25%;padding-bottom:1.25%;color:#254b4e;background:white; border:1px solid #2f6064; box-shadow:1px 2px 1px rgba(1,1,1,0.4);letter-spacing:0.134rem;font-weight:bold;
+            font-family:Karla;
+            margin:3%;
+            margin-left:15%;
+            
+        }
+        button:focus{
+            outline:none;
+        }
+        input{
+             border:1px solid #a7a5a1;
+             color:#1b3038;
+             outline:none;
+             font-size:35px;
+             box-shadow:none;
+             padding:2%;
+             font-family:Karla;
+             margin-left:15%;
+             margin-top:3%;
+        }
+    </style>
+    <script>
+         $(document).ready(function(){
+                var pattern=/^[0-9]{4}$/
+                $("#btn").prop('disabled',true);
+                $("#txt").keyup(function(){
+                      if(!pattern.test($(this).val()) || $(this).val().length==0 || $(this).val() < 2019 || $(this).val() > 2100){
+                             $("#btn").prop('disabled',true);
+                      }
+                      else{
+                            $("#btn").prop('disabled',false);
+                      }
+                });
+         });
+    </script>
+</head>
+<body style="font-family: Karla ; background-image: url('/img/back.jpg');background-size: cover;overflow-y:hidden">
+    <div class="container"> 
+       <div class="row">
+           <div class="col-xs-12 col-lg-12">
+            <div style="margin:8% auto;text-align:center;font-family:Karla">
+                 <form action="/predict" method="POST">
+                    <label style="padding:5%;font-size:18px;margin-left:15%">Enter the Year in range of <a style="font-size:25px">2</a>019 to <a style="font-size:25px">2</a>100</label><br>
+                    <input id="txt" type="text" name="year">
+                    <br>
+                    <button id="btn" type="submit">Predict Gold Price</button>
+                 </form>
+                 <div style="border:5px solid rgb(29, 99, 78); border-right:none;border-top:none;border-bottom:none;margin-left:22%;margin-top:1.5%;text-align:left;padding-left:2%;margin-right:12%;font-size:17px">
+                 <label>
+                        <a style="font-size:28px">L</a>inear Regression is a machine learning algorithm based on supervised learning.Linear regression performs the task to predict a dependent variable value (y) based on a given independent variable (x). So, this regression technique finds out a linear relationship between x (input) and y(output). Hence, the name is Linear Regression.
+                 </label>
+                </div>
+             </div>
+           </div>
+       </div>
+    </div>
+</body>
+</html>
